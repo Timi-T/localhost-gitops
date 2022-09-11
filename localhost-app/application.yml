@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: localhost-argocd
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoUrl: https://github.com/Timi-T/localhost-gitops
+    targetRevision: master
+    path: localhost-app/
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace: true
