@@ -9,7 +9,7 @@ spec:
   source:
     chart: localhost-app
     repoURL: https://github.com/Timi-T/localhost-gitops
-    targetRevision: master
+    targetRevision: 1.16.0
     path: localhost-app/
   destination:
     namespace: argocd
